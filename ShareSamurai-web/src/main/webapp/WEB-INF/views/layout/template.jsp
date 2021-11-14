@@ -18,7 +18,7 @@
         <tiles:insertAttribute name="header" />
         <tiles:insertAttribute name="body" />
         <hr>
-        <p style="text-align: center; background: #e5eCf9;">Copyright &copy; 20XX CompanyName</p>
+        <p style="text-align: center; background: #e5eCf9;">Copyright &copy; 2021 ShareSamurai</p>
     </div>
 </body>
 </html>

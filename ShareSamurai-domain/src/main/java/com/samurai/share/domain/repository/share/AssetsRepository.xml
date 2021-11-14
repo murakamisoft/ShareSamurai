@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.samurai.share.domain.repository.share.AssetsRepository">
+
+    <resultMap id="assetsResultMap" type="Assets">
+    	<id property="userId" column="user_id" />
+        <id property="assetsId" column="assets_id" />
+        <result property="assetsName" column="assets_name" />
+        <result property="createdAt" column="created_at" />
+    </resultMap>
+
+    <select id="findById" parameterType="String" resultMap="assetsResultMap">
+    <![CDATA[
+        SELECT
+        	user_id,
+            assets_id,
+            assets_title,
+            created_at
+        FROM
+            T_ASSETS
+        WHERE
+            assets_id = #{assetsId}
+    ]]>
+    </select>
+
+    <select id="findAll" resultMap="assetsResultMap">
+    <![CDATA[
+        SELECT
+        	user_id,
+            assets_id,
+            assets_title,
+            created_at
+        FROM
+            T_ASSETS
+    ]]>
+    </select>
+
+    <insert id="create" parameterType="Assets">
+    <![CDATA[
+        INSERT INTO assets
+        (
+        	user_id,
+            assets_id,
+            assets_title,
+            created_at
+        )
+        VALUES
+        (
+            #{userId},
+            #{assetsId},
+            #{assetsTitle},
+            #{createdAt}
+        )
+    ]]>
+    </insert>
+
+    <update id="update" parameterType="Assets">
+    <![CDATA[
+        UPDATE assets
+        SET
+            assets_title = #{assetsTitle},
+            finished = #{finished},
+            created_at = #{createdAt}
+        WHERE
+            assets_id = #{assetsId}
+    ]]>
+    </update>
+
+    <delete id="delete" parameterType="Assets">
+    <![CDATA[
+        DELETE FROM
+            assets
+        WHERE
+            assets_id = #{assetsId}
+    ]]>
+    </delete>
+
+</mapper>
