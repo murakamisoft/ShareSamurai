@@ -11,7 +11,7 @@ public class Assets implements Serializable {
 
 	private String assetsId;
 
-	private boolean assetsName;
+	private String assetsName;
 
 	private Date createdAt;
 
@@ -31,11 +31,11 @@ public class Assets implements Serializable {
 		this.assetsId = assetsId;
 	}
 
-	public boolean isAssetsName() {
+	public String getAssetsName() {
 		return assetsName;
 	}
 
-	public void setAssetsName(boolean assetsName) {
+	public void setAssetsName(String assetsName) {
 		this.assetsName = assetsName;
 	}
 

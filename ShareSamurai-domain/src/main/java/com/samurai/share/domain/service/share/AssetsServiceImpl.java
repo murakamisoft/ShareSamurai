@@ -30,11 +30,13 @@ public class AssetsServiceImpl implements AssetsService {
 
 	@Override
 	public Assets create(Assets assets) {
-
+		String userId = UUID.randomUUID().toString();
 		String assetsId = UUID.randomUUID().toString();
 		Date createdAt = new Date();
 
+		assets.setUserId(userId);
 		assets.setAssetsId(assetsId);
+		assets.setAssetsName(assets.getAssetsName());
 		assets.setCreatedAt(createdAt);
 
 		assetsRepository.create(assets);

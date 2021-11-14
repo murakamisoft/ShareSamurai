@@ -16,7 +16,7 @@
         SELECT
         	user_id,
             assets_id,
-            assets_title,
+            assets_name,
             created_at
         FROM
             T_ASSETS
@@ -30,7 +30,7 @@
         SELECT
         	user_id,
             assets_id,
-            assets_title,
+            assets_name,
             created_at
         FROM
             T_ASSETS
@@ -39,18 +39,18 @@
 
     <insert id="create" parameterType="Assets">
     <![CDATA[
-        INSERT INTO assets
+        INSERT INTO T_ASSETS
         (
         	user_id,
             assets_id,
-            assets_title,
+            assets_name,
             created_at
         )
         VALUES
         (
             #{userId},
             #{assetsId},
-            #{assetsTitle},
+            #{assetsName},
             #{createdAt}
         )
     ]]>
@@ -58,9 +58,9 @@
 
     <update id="update" parameterType="Assets">
     <![CDATA[
-        UPDATE assets
+        UPDATE T_ASSETS
         SET
-            assets_title = #{assetsTitle},
+            assets_name = #{assetsName},
             finished = #{finished},
             created_at = #{createdAt}
         WHERE
@@ -71,7 +71,7 @@
     <delete id="delete" parameterType="Assets">
     <![CDATA[
         DELETE FROM
-            assets
+            T_ASSETS
         WHERE
             assets_id = #{assetsId}
     ]]>

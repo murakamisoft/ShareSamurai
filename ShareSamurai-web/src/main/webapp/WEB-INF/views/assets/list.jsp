@@ -17,29 +17,29 @@
 			method="post" modelAttribute="assetsForm">
 			<form:input path="assetsName" />
 			<form:errors path="assetsName" cssClass="text-error" />
-			<form:button>資産を登録する</form:button>
+			<form:button>資産を登録する</form:button>
 		</form:form>
 	</div>
 	<hr />
 	<div id="assetsList">
 		<ul>
-			<c:forEach items="${assetses}" var="assets">
 				<table>
 					<tr>
 						<td>資産名</td>
 						<td></td>
 					</tr>
-					<tr>
-						<td>${f:h(assets.assetsName)}</td>
-						<td><form:form
-								action="${pageContext.request.contextPath}/assets/delete"
-								method="post" modelAttribute="assetsForm" cssClass="inline">
-								<form:hidden path="assetsId" value="${f:h(assets.assetsId)}" />
-								<form:button>削除</form:button>
-							</form:form></td>
-					</tr>
+					<c:forEach items="${assetses}" var="assets">
+						<tr>
+							<td>${f:h(assets.assetsName)}</td>
+							<td><form:form
+									action="${pageContext.request.contextPath}/assets/delete"
+									method="post" modelAttribute="assetsForm" cssClass="inline">
+									<form:hidden path="assetsId" value="${f:h(assets.assetsId)}" />
+									<form:button>削除</form:button>
+								</form:form></td>
+						</tr>
+					</c:forEach>
 				</table>
-			</c:forEach>
 		</ul>
 	</div>
 </body>
