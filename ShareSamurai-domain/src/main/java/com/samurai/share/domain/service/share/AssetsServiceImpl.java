@@ -12,6 +12,7 @@ import org.terasoluna.gfw.common.exception.ResourceNotFoundException;
 import org.terasoluna.gfw.common.message.ResultMessage;
 import org.terasoluna.gfw.common.message.ResultMessages;
 
+import com.samurai.share.domain.common.CommonConstant;
 import com.samurai.share.domain.model.Assets;
 import com.samurai.share.domain.repository.share.AssetsRepository;
 
@@ -30,11 +31,10 @@ public class AssetsServiceImpl implements AssetsService {
 
 	@Override
 	public Assets create(Assets assets) {
-		String userId = UUID.randomUUID().toString();
 		String assetsId = UUID.randomUUID().toString();
 		Date createdAt = new Date();
 
-		assets.setUserId(userId);
+		assets.setUserId(CommonConstant.GUEST_USER_ID);
 		assets.setAssetsId(assetsId);
 		assets.setAssetsName(assets.getAssetsName());
 		assets.setCreatedAt(createdAt);
